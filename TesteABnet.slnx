@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="BackEndTesteABnet/BackEndTesteABnet.csproj" />
+  <Project Path="TesteABnet/TesteABnet.csproj" />
+  <Project Path="TesteABnetAPI/TesteABnetAPI.csproj" />
+</Solution>
