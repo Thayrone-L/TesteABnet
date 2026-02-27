@@ -8,5 +8,6 @@ namespace BackEndTesteABnet.Entities.Enums
     {
         PENDING = 0, 
         DONE = 1,
+        LATE = 2,
     }
 }

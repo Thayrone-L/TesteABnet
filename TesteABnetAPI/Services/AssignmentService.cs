@@ -6,6 +6,19 @@ namespace TesteABnetAPI.Services
     {
         public void CreateAssignment(Assignment assignment)
         {
+            if (assignment.Title == "string" || assignment.Title.Length == 0|| assignment.Title == null) 
+            { 
+                throw new ArgumentException("Title is required"); 
+            }
+
+            List<Assignment> assignments = GetAllAssignment();
+
+            if (assignments.Any(a => a.Title == assignment.Title && a.Status == 0 )) 
+            {
+                throw new ArgumentException("Cannot create an assignment with the same Title as an pendent assignment");
+            }
+
+
             throw new NotImplementedException();
         }
 
@@ -14,7 +27,7 @@ namespace TesteABnetAPI.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Assignment> GetAllAssignment()
+        public List<Assignment> GetAllAssignment()
         {
             throw new NotImplementedException();
         }

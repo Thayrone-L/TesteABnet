@@ -1,7 +1,13 @@
+using BackEndTesteABnet.Data;
+using Microsoft.EntityFrameworkCore;
 using TesteABnetAPI.Interfaces;
 using TesteABnetAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=assignments.db"));
 
 // Add services to the container.
 
