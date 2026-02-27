@@ -81,8 +81,6 @@ Banco leve e baseado em arquivo
 
 Não requer servidor externo
 
-Ideal para projetos pequenos e testes técnicos
-
 Fácil portabilidade
 
 O banco é gerado automaticamente via Entity Framework Core Migrations.
@@ -97,6 +95,7 @@ appsettings.json (API)
     "DefaultConnection": "Data Source=assignments.db"
   }
 }
+
 Program.cs (API)
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
