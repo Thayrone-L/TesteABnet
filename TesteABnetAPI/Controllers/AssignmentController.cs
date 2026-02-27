@@ -7,11 +7,35 @@ namespace TesteABnetAPI.Controllers
     [Route("[controller]")]
     public class AssignmentController : ControllerBase
     {
-        [HttpGet(Name = "GetAssignment")]
-        public IEnumerable<Assignment> Get()
+        [HttpPost(Name = "CreateAssignment")]
+        public void PostAssignment(Assignment assignment)
+        {
+
+        }
+
+
+        [HttpGet(Name = "GetAllAssignment")]
+        public IEnumerable<Assignment> GetAllAssignment()
         {
             return null;
+        }
 
+        [HttpGet(Name = "GetAssignmentById")]
+        public Assignment GetAssignmentById()
+        {
+            return null;
+        }
+
+        [HttpPut(Name = "UpdateAssignment")]
+        public void PutAssignment(Assignment assignment)
+        {
+
+        }
+
+        [HttpDelete(Name = "DeleteAssignment")]
+        public void DeleteAssignment(Assignment assignment) 
+        { 
+        
         }
     }
 }
