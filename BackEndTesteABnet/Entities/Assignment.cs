@@ -9,8 +9,9 @@ namespace BackEndTesteABnet.Entities
         public string Description { get; set; }
         public Status Status { get; set; }
         public Priority Priority { get; set; }
-        public DateTime DueDate { get; set; }
+        public DateTime? DueDate { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public bool Overdue =>  DueDate.HasValue && DueDate.Value < DateTime.UtcNow;
     }
 }

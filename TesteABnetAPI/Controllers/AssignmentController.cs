@@ -1,4 +1,5 @@
 using BackEndTesteABnet.Entities;
+using BackEndTesteABnet.Entities.Enums;
 using Microsoft.AspNetCore.Mvc;
 using TesteABnetAPI.Interfaces;
 using TesteABnetAPI.Services;
@@ -22,16 +23,17 @@ namespace TesteABnetAPI.Controllers
             _service.CreateAssignment(assignment);
         }
 
-        [HttpGet(Name = "GetAllAssignment")]
-        public IEnumerable<Assignment> GetAllAssignment()
+        [HttpGet]
+        public async Task<ActionResult<List<Assignment>>> GetAllAssignment(Status? status = null, Priority? priority = null, bool? overdue = null, string? search = null)
         {
-            return _service.GetAllAssignment();
+            var result = await _service.GetAllAssignment(status, priority ,overdue, search);
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
         public Assignment GetAssignmentById(int id)
         {
-            return _service.GetAssignmentById(id);
+            return _service.GetAssignmentById(id).Result;
         }
 
         [HttpPut(Name = "UpdateAssignment")]
