@@ -4,13 +4,13 @@ namespace BackEndTesteABnet.Entities
 {
     public class Assignment
     {
-        int id { get; set; }
-        string title { get; set; }
-        string description { get; set; }
-        Status status { get; set; }
-        Priority priority{ get; set; }
-        DateTime dueDate { get; set; }
-        DateTime createdAt { get; set; }
-        DateTime updatedAt { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public Status Status { get; set; }
+        public Priority Priority { get; set; }
+        public DateTime DueDate { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }
