@@ -2,7 +2,6 @@ using BackEndTesteABnet.Entities;
 using BackEndTesteABnet.Entities.Enums;
 using Microsoft.AspNetCore.Mvc;
 using TesteABnetAPI.Interfaces;
-using TesteABnetAPI.Services;
 
 namespace TesteABnetAPI.Controllers
 {
@@ -36,16 +35,29 @@ namespace TesteABnetAPI.Controllers
             return _service.GetAssignmentById(id).Result;
         }
 
-        [HttpPut(Name = "UpdateAssignment")]
-        public void PutAssignment(Assignment assignment)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateAssignment(int id, Assignment assignment)
         {
-            _service.UpdateAssignment(assignment);
+            if (id != assignment.Id)
+                return BadRequest();
+
+            var updated = await _service.UpdateAssignment(assignment);
+
+            if (!updated)
+                return NotFound();
+
+            return NoContent();
         }
 
-        [HttpDelete(Name = "DeleteAssignment")]
-        public void DeleteAssignment(int id) 
-        { 
-            _service.DeleteAssignment(id);
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAssignment(int id)
+        {
+            var deleted = await _service.DeleteAssignment(id);
+
+            if (!deleted)
+                return NotFound();
+
+            return NoContent();
         }
     }
 }

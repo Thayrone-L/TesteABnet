@@ -2,7 +2,6 @@ using BackEndTesteABnet.Data;
 using BackEndTesteABnet.Repository;
 using Microsoft.EntityFrameworkCore;
 using TesteABnetAPI.Interfaces;
-using TesteABnetAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
